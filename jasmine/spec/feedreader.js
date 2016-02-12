@@ -22,7 +22,7 @@ $(function() {
         //checks if it is a string and if it is an URL
         it('have urls', function() {
             for (var x = 0; x < allFeeds.length; x++) {
-                if (typeof allFeeds[id].url != "string") {
+                if (typeof allFeeds[x].url != "string") {
                     throw new Error("Url isn't a string!");
                 }
                 expect(allFeeds[x].url).toContain('http://');
@@ -34,7 +34,7 @@ $(function() {
         //checks if it is a string and if it is defined
         it('have names', function() {
             for (var x = 0; x < allFeeds.length; x++) {
-                if (typeof allFeeds[id].name != "string") {
+                if (typeof allFeeds[x].name != "string") {
                     throw new Error("Name isn't a string!");
                 }
                 expect(allFeeds[x].name).toBeDefined();
@@ -60,7 +60,7 @@ $(function() {
             $menu.click();
 
             expect($body.hasClass('menu-hidden')).toBe(true);
-        })
+        });
     });
 
 
