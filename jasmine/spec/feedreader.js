@@ -18,14 +18,12 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         //checks if it is a string and if it is an URL
         it('have urls', function() {
             for (var x = 0; x < allFeeds.length; x++) {
-                if (typeof allFeeds[x].url != "string") {
-                    throw new Error("Url isn't a string!");
-                }
+                expect(allFeeds[x].url).toBeDefined();
                 expect(allFeeds[x].url).toContain('http://');
+                expect(allFeeds[x].name.length).toBeGreaterThan(0);
             }
         });
 
@@ -34,10 +32,8 @@ $(function() {
         //checks if it is a string and if it is defined
         it('have names', function() {
             for (var x = 0; x < allFeeds.length; x++) {
-                if (typeof allFeeds[x].name != "string") {
-                    throw new Error("Name isn't a string!");
-                }
                 expect(allFeeds[x].name).toBeDefined();
+                expect(allFeeds[x].name.length).toBeGreaterThan(0);
             }
         });
 
@@ -52,8 +48,8 @@ $(function() {
 
         it('toggles when clicked', function() {
 
-            $body = $('body');
-            $menu = $('.menu-icon-link');
+            var $body = $('body');
+            var $menu = $('.menu-icon-link');
             $menu.click();
 
             expect($body.hasClass('menu-hidden')).toBe(false);
@@ -79,22 +75,24 @@ $(function() {
 
     //checks that feeds have different content
     describe('New Feed selection', function() {
-        var firstFeed, secondFeed;
 
-        beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
+        var firstFeed;
+        var secondFeed;
+
+        beforeEach(function() {
+            loadFeed(0,function(){
+                firstFeed = $('.feed').html();
             });
-            firstFeed = $('.feed').html();
+
         });
 
         it('content changes', function(done) {
-            loadFeed(1, function() {
-
+            loadFeed(1, function(){
                 secondFeed = $('.feed').html();
+                expect(firstFeed).not.toEqual(secondFeed);
+                done();
             });
-            expect(firstFeed).not.toEqual(secondFeed);
-            done();
+
         });
     });
 
