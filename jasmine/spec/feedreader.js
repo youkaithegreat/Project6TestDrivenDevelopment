@@ -68,7 +68,7 @@ $(function() {
             });
         });
 
-        it('is empty', function() {
+        it('list is empty', function() {
             expect($('.entry-link').length).toBeGreaterThan(0);
         });
     });
