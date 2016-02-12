@@ -23,7 +23,7 @@ $(function() {
             for (var x = 0; x < allFeeds.length; x++) {
                 expect(allFeeds[x].url).toBeDefined();
                 expect(allFeeds[x].url).toContain('http://');
-                expect(allFeeds[x].name.length).toBeGreaterThan(0);
+                expect(allFeeds[x].url.length).toBeGreaterThan(0);
             }
         });
 
@@ -82,6 +82,7 @@ $(function() {
         beforeEach(function() {
             loadFeed(0,function(){
                 firstFeed = $('.feed').html();
+                done();
             });
 
         });
