@@ -1,6 +1,10 @@
 # UDACITY Project 6 - Feed Reader Test Development Proof of Concept
 In this project I wrote tests using Jasmine to check that the feed reader was doing the correct things.
 
+
+## How To Run
+Just open the index.html file or a live site can be found at www.kevintyang.com/ProjectSix
+
 ## Skills
 1. Jasmine JS
 2. Test Driven Development
