@@ -48,6 +48,14 @@ function init() {
          throw new Error("Array length exceeded");
      }
 
+     if(allFeeds[id].url != "string"){
+         throw new Error("Url isn't a string");
+     }
+
+     if(allFeeds[id].name != "string"){
+         throw new Error("Name isn't a string");
+     }
+
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
 
