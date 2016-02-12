@@ -68,7 +68,7 @@ $(function() {
             });
         });
 
-        it('list is empty', function() {
+        it('should contain at least a single .entry element in the .feed container', function() {
             expect($('.entry-link').length).toBeGreaterThan(0);
         });
     });
