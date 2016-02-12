@@ -41,8 +41,16 @@ function init() {
  * which will be called after everything has run successfully.
  */
  function loadFeed(id, cb) {
+
+
+     //error checking in loadFeed for array length
+     if(id > allFeeds.length){
+         throw new Error("Array length exceeded");
+     }
+
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
+
 
      $.ajax({
        type: "POST",
